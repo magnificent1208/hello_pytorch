@@ -109,16 +109,18 @@ class ModuleList(nn.Module):
         return x
 
 
-net = ModuleList()
-print(net)
-fake_data = torch.ones((10, 10))
-output = net(fake_data)
+# net = ModuleList()
+# print(net)
+# fake_data = torch.ones((10, 10))
+# output = net(fake_data)
 #
 # print(output)
 
 
 # ============================ ModuleDict
-
+'''
+索引性
+'''
 class ModuleDict(nn.Module):
     def __init__(self):
         super(ModuleDict, self).__init__()
@@ -138,13 +140,10 @@ class ModuleDict(nn.Module):
         return x
 
 
-net = ModuleDict()
-
-fake_img = torch.randn((4, 10, 32, 32))
-
-output = net(fake_img, 'conv', 'relu')
-
-print(output)
+# net = ModuleDict()
+# fake_img = torch.randn((4, 10, 32, 32))
+# output = net(fake_img, 'conv', 'relu')
+# print(output)
 
 
 
