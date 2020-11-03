@@ -18,6 +18,11 @@
 Return the recommended gain value for the given nonlinearity function.
 are as follows: @https://pytorch.org/docs/stable/nn.init.html
 
+主要参数
+nonlinearity - 激活函数的名称
+param - 激活函数的参数 如leaky relu 的负半轴
+
+
 
 """
 import os
@@ -108,6 +113,8 @@ if flag:
 
     gain = x.std() / out.std()
     print('gain:{}'.format(gain))
+
+    #这里手动计算出来的gian，跟pyotrch官方文档里面是一样的
 
     tanh_gain = nn.init.calculate_gain('tanh')
     print('tanh_gain in PyTorch:', tanh_gain)
