@@ -54,6 +54,9 @@ val_interval = 1
 rmb_label = {"1": 0, "100": 1}
 
 
+
+
+
 class AddPepperNoise(object):
     """增加椒盐噪声:随机出现黑or白点，黑色的是椒，白色的是盐。
     Args:

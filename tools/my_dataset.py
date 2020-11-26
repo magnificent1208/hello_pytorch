@@ -46,7 +46,7 @@ class RMBDataset(Dataset):
             # 遍历类别
             for sub_dir in dirs:
                 img_names = os.listdir(os.path.join(root, sub_dir))
-                img_names = list(filter(lambda x: x.endswith('.jpg'), img_names))
+                img_names = list(filter(lambda x: x.endswith('.png'), img_names))
 
                 # 遍历图片
                 for i in range(len(img_names)):
@@ -110,7 +110,7 @@ class PortraitDataset(Dataset):
     def __getitem__(self, index):
 
         path_label = self.label_path_list[index]
-        path_img = path_label[:-10] + ".png"
+        path_img = path_label[:-10] + ".jpg"
 
         img_pil = Image.open(path_img).convert('RGB')
         img_pil = img_pil.resize((self.in_size, self.in_size), Image.BILINEAR)

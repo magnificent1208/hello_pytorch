@@ -53,16 +53,16 @@ train_transform = transforms.Compose([
     # transforms.Pad(padding=(8, 16, 32, 64), fill=(255, 0, 0), padding_mode='symmetric'),  #镜像fill ~ Unet
 
     # 2 ColorJitter
-    # transforms.ColorJitter(brightness=0.5),
-    # transforms.ColorJitter(contrast=0.5),
-    # transforms.ColorJitter(saturation=0.5),
-    # transforms.ColorJitter(hue=0.3),
+    transforms.ColorJitter(brightness=0.5),
+    transforms.ColorJitter(contrast=0.3),
+    transforms.ColorJitter(saturation=0.5),
+    transforms.ColorJitter(hue=0.3),
 
     # 3 Grayscale
     # transforms.Grayscale(num_output_channels=3),
 
     # 4 Affine  仿射变换 -- 对图像进行二维的线性变换，由5种基本原子变换构成，分别是旋转、平移、缩放、错切和翻转。
-    # transforms.RandomAffine(degrees=30),
+    # transforms.RandomAffine(degrees=15),
     # transforms.RandomAffine(degrees=0, translate=(0.2, 0.2), fillcolor=(255, 0, 0)),
     # transforms.RandomAffine(degrees=0, scale=(0.7, 0.7)),
     # transforms.RandomAffine(degrees=0, shear=(0, 0, 0, 45)),
@@ -81,10 +81,10 @@ train_transform = transforms.Compose([
     # transforms.RandomApply([transforms.RandomAffine(degrees=0, shear=45, fillcolor=(255, 0, 0)),
     #                         transforms.Grayscale(num_output_channels=3)], p=0.5),
     # 3 RandomOrder 随机组合
-    transforms.RandomOrder([transforms.RandomRotation(15),
-                            transforms.Pad(padding=32),
-                            transforms.RandomAffine(degrees=0, translate=(0.01, 0.1), scale=(0.9, 1.1))]),
-
+    # transforms.RandomOrder([transforms.RandomRotation(15),
+    #                         transforms.Pad(padding=32),
+    #                         transforms.RandomAffine(degrees=0, translate=(0.01, 0.1), scale=(0.9, 1.1))]),
+    #
     transforms.ToTensor(),
     transforms.Normalize(norm_mean, norm_std),
 ])
