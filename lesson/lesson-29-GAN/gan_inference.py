@@ -11,6 +11,9 @@ D是 判别器 discriminator
 G是 生成器 generator
 Z是 latent variable (潜在变量) *作为输入
 x是 真实的训练数据 
+
+GAN中不采用损失函数，而更新差异值由一个网络提供。
+使用一个D network生成差异值，使得产生的随机数 在 分 布 上 逼近训练数据
 '''
 
 import os
